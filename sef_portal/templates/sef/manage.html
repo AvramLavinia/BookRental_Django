@@ -1,0 +1,39 @@
+{% extends 'sef/base.html' %}
+{% block content %}
+<div class="w3-bar w3-black w3-large">
+  <div class="w3-bar-item w3-left w3-black">Admin Portal: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right " href="/sef_portal/auth/">Home</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/order_list/">Orders</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/manage_books/">Books</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/history/">Earnings</a>
+</div>
+<h3 class="w3-center" style="padding-top:30"><b>Posted Books</b></h3>
+<div style="padding:18">
+<table class="w3-table w3-striped w3-center">
+
+  <tr>
+    <th style="padding:20;">Book </th>
+    <th style="padding:20;">Author </th>
+    <th style="padding:20;">Pages Number </th>
+    <th style="padding:20;">Pincode </th>
+    <th style="padding:20;">Book publishing</th>
+    <th style="padding:20;">Action</th>
+  </tr>
+  {% for book in book_list %}
+  <tr>
+      <td>{{book.book_name}}</td>
+      <td>{{book.color}}</td>
+      <td>{{book.pg}} </td>
+      <td>{{book.area.pincode}}</td>
+      <td>{{book.area.city}}</td>
+      <td><form action = "/sef_portal/delete/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{book.id}}">
+        <input class="w3-btn w3-red" type="submit" value="Delete">
+      </form></td>
+  </tr>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

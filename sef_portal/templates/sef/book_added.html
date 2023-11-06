@@ -1,0 +1,19 @@
+{% extends 'sef/base.html' %}
+{% block content %}
+{% csrf_token %}
+<div class="w3-bar w3-black w3-large">
+  <div class="w3-bar-item w3-left w3-black">Sef Portal: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right " href="/sef_portal/auth/">Home</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/order_list/">Orders</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/manage_books/">Books</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/history/">Earnings</a>
+</div>
+
+<div class="w3-display-container" style="height:300px;">
+  <div class="w3-display-middle">
+    Book Details Added! <br><br>
+    <a href="/sef_portal/index/">Back To Home Page</a>
+</div>
+</div>
+{% endblock %}

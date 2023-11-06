@@ -1,0 +1,34 @@
+{% extends 'sef/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="w3-bar w3-large w3-black">
+  <div class="w3-bar-item w3-left w3-black">Admin Portal: {{user.username}}</div>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/logout/">Logout</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/order_list/">Orders</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/manage_books/">Books</a>
+  <a class="w3-bar-item w3-btn w3-teal w3-right" href="/sef_portal/history/">Earnings</a>
+</div>
+
+<div class="w3-display-container" style="height:800px;">
+  <div class="w3-display-left" style="padding-left: 200px;">
+
+<h3 class="w3-container w3-bar w3-black w3-large" style="padding:8px"><center>Post Books<center> </h3>
+
+<form class="w3-container" action="/sef_portal/add_book/" method="post">{% csrf_token %}
+  <lable>Book Name :</lable> <input class="w3-input" type="text" name="book_name"><br><br>
+  <lable>Book publishing:</lable> <input class="w3-input" type="text" name="color"><br><br>
+  <lable>Author :</lable> <input class="w3-input" type="text" name="city"><br><br>
+  <lable>Pincode :</lable> <input class="w3-input" type="text" name="pincode"><br><br>
+  <lable>Description :</lable> <input class="w3-input" type="text" name="description"><br><br>
+  <lable>Pages number:</lable> <input class="w3-input" type="text" name="pg"><br><br>
+  <input class="w3-btn w3-green" type="submit" value="Add Book"><br><br>
+<form>
+</div>
+
+<div class = "w3-display-right">
+  <img src="{% static 'images/2.jpg' %}" width="750px">
+</div>
+
+{% endblock %}
+</div>>
